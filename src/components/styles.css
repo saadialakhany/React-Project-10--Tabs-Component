@@ -23,7 +23,7 @@
   color: red;
   font-size: 18px;
 }
-.tab--active {
+.active {
   background-color: #f18f01;
 }
 .hidden {
