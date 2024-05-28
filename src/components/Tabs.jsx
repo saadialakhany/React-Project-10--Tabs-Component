@@ -1,34 +1,31 @@
-import React from "react";
+import React, { useState } from "react";
 import "./styles.css";
-
-const data = [
-  "This is content for Tab 1",
-  "This is content for Tab 2",
-  "This is content for Tab 3",
-];
+import { tabsData } from "./tabsData";
 
 const Tabs = () => {
+  const [currentTabIndex, setCurrentTabIndex] = useState(0);
+
+  function handleChange(currentTabIndex) {
+    setCurrentTabIndex(currentTabIndex);
+  }
+
   return (
     <div className="container">
       <div className="tab--container">
-        {data.length > 0
-          ? data.map((item, index) => (
-              <div key={index} className={`tab tab--${index + 1} `}>
-                Tab {index + 1}
+        {tabsData.length > 0
+          ? tabsData.map((el, index) => (
+              <div
+                onClick={() => handleChange(index)}
+                key={index}
+                className={`tab ${el.label}`}
+              >
+                {el.label}
               </div>
             ))
           : null}
       </div>
       <div className="content--container">
-        {data && data.length > 0
-          ? data.map((el, index) => {
-              return (
-                <p key={index} className={`content ${index + 1}`}>
-                  {el}
-                </p>
-              );
-            })
-          : null}
+        {tabsData[currentTabIndex] && tabsData[currentTabIndex].content}
       </div>
     </div>
   );

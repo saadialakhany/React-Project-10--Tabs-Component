@@ -19,9 +19,8 @@
   border: 1px solid black;
   cursor: pointer;
 }
-.content {
+.content--container {
   color: red;
-  font-size: 18px;
 }
 .active {
   background-color: #f18f01;
