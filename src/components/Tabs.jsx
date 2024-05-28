@@ -17,7 +17,9 @@ const Tabs = () => {
               <div
                 onClick={() => handleChange(index)}
                 key={index}
-                className={`tab ${el.label}`}
+                className={`tab ${el.label} ${
+                  currentTabIndex === index ? "active" : ""
+                }`}
               >
                 {el.label}
               </div>
